@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorpicker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="colorpicker.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="color-picker"></canvas>
+        <div class="info">
+            <h3>Selected Color</h3>
+            <div class="selected"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let picker = new Picker(document.getElementById("color-picker"), 250, 220);
+
+        //Draw 
+        setInterval(() => picker.draw(), 1);
+
+        picker.onChange((color) => {
+            let selected = document.getElementsByClassName("selected")[0];
+            selected.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+        });
+    </script>
+</body>
+
+</html>
